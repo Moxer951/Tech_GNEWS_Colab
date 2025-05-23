@@ -1,0 +1,17 @@
+/content/tech_news_gnews/
+│
+├── excel/
+│   └── gnews_tech_news.xlsx
+│
+├── images/
+│   └── (عکس‌های کلی)
+│
+├── news_items/
+│   ├── news_1/
+│   ├── news_2/
+│   └── ...
+│
+├── logs/                      # ← پوشه جدید برای ذخیره گزارش‌ها و لاگ‌ها
+│   └── run_log_YYYYMMDD.txt   # مثلا گزارش زمان اجرا، تعداد خبرها، خطاها و ...
+│
+└── tech_news_gnews.7z
