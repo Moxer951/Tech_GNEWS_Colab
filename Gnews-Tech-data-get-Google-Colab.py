@@ -14,7 +14,7 @@ from datetime import datetime
 import shutil
 
 # پارامترهای قابل تنظیم
-API_KEY = "api_key_str"
+API_KEY = "copy_you_api"
 LANG = "en"
 TOPIC = "technology"
 RESULT_LIMIT = 10
@@ -91,7 +91,16 @@ excel_file = os.path.join(EXCEL_PATH, f"gnews_tech_news.xlsx")
 df.to_excel(excel_file, index=False)
 
 # فشرده‌سازی کل پوشه
-ZIP_FILE = "/content/drive/MyDrive/gnews_tech_news.7z"
+
+
+# فشرده‌سازی کل پوشه با تاریخ و ساعت در نام فایل
+now = datetime.now()
+formatted_date = now.strftime("%Y.%m.%d")
+formatted_time = now.strftime("%H:%M:%S")
+zip_filename = f"gnews_tech_news_date_{formatted_date}_time_{formatted_time}.7z"
+ZIP_FILE = f"/content/drive/MyDrive/{zip_filename}"
+
 !7z a -mx=9 "{ZIP_FILE}" "{BASE_PATH}"
 
 print(f"✅ Done! Zipped archive saved to: {ZIP_FILE}")
+#Done
