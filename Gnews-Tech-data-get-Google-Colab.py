@@ -92,13 +92,32 @@ df.to_excel(excel_file, index=False)
 
 # فشرده‌سازی کل پوشه
 
-
+#-----زمان و تاریخ جهانی ساعت 0 -----------
 # فشرده‌سازی کل پوشه با تاریخ و ساعت در نام فایل
-now = datetime.now()
-formatted_date = now.strftime("%Y.%m.%d")
-formatted_time = now.strftime("%H:%M:%S")
+#now = datetime.now()
+#formatted_date = now.strftime("%Y.%m.%d")
+#formatted_time = now.strftime("%H:%M:%S")
+#zip_filename = f"gnews_tech_news_date_{formatted_date}_time_{formatted_time}.7z"
+#ZIP_FILE = f"/content/drive/MyDrive/{zip_filename}"
+
+
+
+#-----زمان و تاریخ تهران ساعت +3:30 -----------
+
+from datetime import datetime
+from zoneinfo import ZoneInfo  # نیازی به نصب نیست
+
+# زمان به وقت تهران
+now_tehran = datetime.now(ZoneInfo("Asia/Tehran"))
+formatted_date = now_tehran.strftime("%Y.%m.%d")
+formatted_time = now_tehran.strftime("%H:%M:%S")
 zip_filename = f"gnews_tech_news_date_{formatted_date}_time_{formatted_time}.7z"
 ZIP_FILE = f"/content/drive/MyDrive/{zip_filename}"
+
+!7z a -mx=9 "{ZIP_FILE}" "{BASE_PATH}"
+
+print(f"✅ Done! Zipped archive saved to: {ZIP_FILE}")
+
 
 !7z a -mx=9 "{ZIP_FILE}" "{BASE_PATH}"
 
